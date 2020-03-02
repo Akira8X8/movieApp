@@ -1,0 +1,4 @@
+tv_show = <C:\Users\Ziyan\Documents\NetBeansProjects\NetflixApp\src\netflixapp\BreakingBad.txt>\\BreakingBad.txt
+tv_show = <C:\Users\Ziyan\Documents\NetBeansProjects\NetflixApp\src\netflixapp\TheOffice.txt">\\TheOffice.txt
+movie = <C:\Users\Ziyan\Documents\NetBeansProjects\NetflixApp\src\netflixapp\BeautyAndTheBeast.txt">\\BeautyAndTheBeast.txt
+movie = <C:\Users\Ziyan\Documents\NetBeansProjects\NetflixApp\src\netflixapp\TheMatrix.txt>\\TheMatrix.txt
