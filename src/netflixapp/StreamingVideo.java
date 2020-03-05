@@ -4,37 +4,37 @@ import java.util.List;
 
 public class StreamingVideo {
     
-private String title;
-private String rating;
-private String description;
+protected String title;
+protected String rating;
+protected String description;
 private List<String> casting;
 
-public void setTitle(){
-    
+public void setTitle(String videoTitle){
+    this.title = videoTitle;
 }
 
 public String getTitle(){
     return title;
 }
 
-public void setRating(){
-    
+public void setRating(String viewerRating){
+    rating = viewerRating;
 }
 
 public String getRating(){
     return rating;
 }
 
-public void setDescription(){
-    
+public void setDescription(String description){
+    this.description = description;
 }
 
 public String getDescription(){
     return description;
 }
 
-public void setCasting(){
-    
+public void setCasting(List<String> cast){
+    casting = cast;
 }
 
 public List getCasting(){

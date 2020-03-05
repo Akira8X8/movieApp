@@ -1,12 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package netflixapp;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -22,34 +18,40 @@ public class Movie extends StreamingVideo {
     public Movie(String filePath) throws FileNotFoundException {
         File movieFile = new File(filePath);
         Scanner movieScanner = new Scanner(movieFile);
-        getTitle();
+        setTitle(movieScanner.nextLine().split(":")[1].trim());
+        setRating(movieScanner.nextLine().split(":")[1].trim());
+        setDescription(movieScanner.nextLine().split(":")[1].trim());
+        setReleaseYear(movieScanner.nextLine().split(":")[1].trim());
+        setRunTime(movieScanner.nextLine().split(":")[1].trim());
+        setProductionCompany(movieScanner.nextLine().split(":")[1].trim());
+        setCasting(Arrays.asList((movieScanner.nextLine().split(":")[1].trim())));
 
     }
     
     
 
-    public void setRunTime() {
-
+    public void setRunTime(String runTime) {
+        this.runTime = runTime;
     }
 
     public String getRunTime() {
 
-        return "Formatted Runtime";
+        return runTime;
     }
 
-    public void setProductionCompany() {
-
+    public void setProductionCompany(String productionCompany) {
+        this.productionCompany = productionCompany;
     }
 
     public String getProductionCompany() {
-        return "prodco";
+        return productionCompany;
     }
 
-    public void setReleaseYear() {
-        
+    public void setReleaseYear(String year) {
+        releaseYear = year;
     }
 
     public String getReleaseYear() {
-        return "year";
+        return releaseYear;
     }
 }

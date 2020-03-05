@@ -1,4 +1,5 @@
-
+package netflixapp;
+        
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ public class NetflixApp {
 
     private List<StreamingVideo> readStreamVideoDatabase() {
         List<StreamingVideo> streamVideoList = new ArrayList();
-        File databaseFile = new File("C:\\Users\\Zed\\Documents\\NetBeansProjects\\NetflixApp\\src\\netflixapp\\StreamingVideoDatabase.txt");
+        File databaseFile = new File("C:\\Users\\Ziyan\\Documents\\NetBeansProjects\\NetflixApp\\src\\netflixapp\\StreamingVideoDatabase.txt");
         try {
             Scanner fileScanner = new Scanner(databaseFile);
             while (fileScanner.hasNext()) {
@@ -45,19 +46,48 @@ public class NetflixApp {
     }
 
     private void showMainMenu(List<StreamingVideo> listOfStreamingVideos) {
-// implement your code here (use the toString method when possible)
+        String input = JOptionPane.showInputDialog("NetFlix App\n\n1) Movies\n2) TV Series\n3) Exit\n\nPlease select one option:\n\n");
+        if (input.equals("1")){
+            showMoviesMenu(listOfStreamingVideos);
+        }else if (input.equals("2")){
+            showTVShowMenu(listOfStreamingVideos);
+        }System.exit(0);
     }
 
     private void showMoviesMenu(List<StreamingVideo> listOfStreamingVideos) {
-// implement your code here (use the toString method when possible)
+        try {
+            Movie beauty = new Movie("C:\\Users\\Ziyan\\Documents\\NetBeansProjects\\NetflixApp\\src\\netflixapp\\BeautyAndTheBeast.txt");
+            String input = JOptionPane.showInputDialog("List of Movies:\n\n1) Beauty and the Beast\n2) The Matrix\n3) Exit\n\nPlease select one option:\n\n");
+            Movie matrix = new Movie("C:\\Users\\Ziyan\\Documents\\NetBeansProjects\\NetflixApp\\src\\netflixapp\\TheMatrix.txt");
+            if (input.equals("1")){
+                showSpecificMovieInfo(beauty);
+            }else if (input.equals("2")){
+                showSpecificMovieInfo(matrix);
+            }System.exit(0);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(NetflixApp.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     private void showSpecificMovieInfo(Movie movie) {
-// implement your code here (use the toString method when possible)
+        StringBuilder movieInfo = new StringBuilder();
+        movieInfo.append("Title: ").append(movie.getTitle()).append("\n");
+        movieInfo.append("Viewer Rating: ").append(movie.getRating()).append("\n");
+        movieInfo.append("Description: ").append(movie.getDescription()).append("\n");
+        movieInfo.append("Released: ").append(movie.getReleaseYear()).append("\n");
+        movieInfo.append("Runtime: ").append(movie.getRunTime()).append("\n");
+        movieInfo.append("Production Company: ").append(movie.getProductionCompany()).append("\n");
+        movieInfo.append("Casting: ").append(movie.getCasting()).append("\n");
+        JOptionPane.showInputDialog(movieInfo);
     }
 
     private void showTVShowMenu(List<StreamingVideo> listOfStreamingVideos) {
-// implement your code here (use the toString method when possible)
+        String input = JOptionPane.showInputDialog("List of Shows:\n\n1) Breaking Bad\n2) The Office\n3) Exit\n\nPlease select one option:\n\n");
+        if (input.equals("1")){
+            showTVShowMenu(listOfStreamingVideos);
+        }else if (input.equals("2")){
+            showTVShowMenu(listOfStreamingVideos);
+        }System.exit(0);
     }
 
     private void showSpecificTVShowMenu(TVShow tvShow) {

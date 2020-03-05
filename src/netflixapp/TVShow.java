@@ -7,6 +7,8 @@ package netflixapp;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -22,11 +24,17 @@ import java.util.Scanner;
  */
 public class TVShow extends StreamingVideo{
     
+    private int numberOfSeasons;
+private List<Season> listOfSeasons;
+
+    
    public TVShow(String filePath) throws FileNotFoundException {
         File tvFile = new File(filePath);
         Scanner tvScanner = new Scanner(tvFile);
-        getTitle();
-
+        setTitle(tvScanner.nextLine().split(":")[1].trim());
+        setRating(tvScanner.nextLine().split(":")[1].trim());
+        setDescription(tvScanner.nextLine().split(":")[1].trim());
+        setCasting(Arrays.asList((tvScanner.nextLine().split(":")[1].trim())));
     }
     
 }
