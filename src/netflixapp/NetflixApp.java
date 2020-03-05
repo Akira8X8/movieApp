@@ -27,7 +27,7 @@ public class NetflixApp {
 
     private List<StreamingVideo> readStreamVideoDatabase() {
         List<StreamingVideo> streamVideoList = new ArrayList();
-        File databaseFile = new File("C:\\Users\\Ziyan\\Documents\\NetBeansProjects\\NetflixApp\\src\\netflixapp\\StreamingVideoDatabase.txt");
+        File databaseFile = new File("C:\\Users\\Zed\\Documents\\NetBeansProjects\\NetflixApp\\src\\netflixapp\\StreamingVideoDatabase.txt");
         try {
             Scanner fileScanner = new Scanner(databaseFile);
             while (fileScanner.hasNext()) {
@@ -56,9 +56,9 @@ public class NetflixApp {
 
     private void showMoviesMenu(List<StreamingVideo> listOfStreamingVideos) {
         try {
-            Movie beauty = new Movie("C:\\Users\\Ziyan\\Documents\\NetBeansProjects\\NetflixApp\\src\\netflixapp\\BeautyAndTheBeast.txt");
+            Movie beauty = new Movie("C:\\Users\\Zed\\Documents\\NetBeansProjects\\NetflixApp\\src\\netflixapp\\BeautyAndTheBeast.txt");
             String input = JOptionPane.showInputDialog("List of Movies:\n\n1) Beauty and the Beast\n2) The Matrix\n3) Exit\n\nPlease select one option:\n\n");
-            Movie matrix = new Movie("C:\\Users\\Ziyan\\Documents\\NetBeansProjects\\NetflixApp\\src\\netflixapp\\TheMatrix.txt");
+            Movie matrix = new Movie("C:\\Users\\Zed\\Documents\\NetBeansProjects\\NetflixApp\\src\\netflixapp\\TheMatrix.txt");
             if (input.equals("1")){
                 showSpecificMovieInfo(beauty);
             }else if (input.equals("2")){
@@ -82,16 +82,27 @@ public class NetflixApp {
     }
 
     private void showTVShowMenu(List<StreamingVideo> listOfStreamingVideos) {
+        try {
+        TVShow bad = new TVShow("C:\\Users\\Zed\\Documents\\NetBeansProjects\\NetflixApp\\src\\netflixapp\\BreakingBad.txt");
+            TVShow office = new TVShow("C:\\Users\\Zed\\Documents\\NetBeansProjects\\NetflixApp\\src\\netflixapp\\TheOffice.txt");
         String input = JOptionPane.showInputDialog("List of Shows:\n\n1) Breaking Bad\n2) The Office\n3) Exit\n\nPlease select one option:\n\n");
         if (input.equals("1")){
-            showTVShowMenu(listOfStreamingVideos);
+            showSpecificTVShowMenu(bad);
         }else if (input.equals("2")){
-            showTVShowMenu(listOfStreamingVideos);
+            showSpecificTVShowMenu(office);
         }System.exit(0);
+    }catch (FileNotFoundException ex) {
+            Logger.getLogger(NetflixApp.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     private void showSpecificTVShowMenu(TVShow tvShow) {
-// implement your code here (use the toString method when possible)
+        StringBuilder showInfo = new StringBuilder();
+        showInfo.append("Title: ").append(tvShow.getTitle()).append("\n");
+        showInfo.append("Viewer Rating: ").append(tvShow.getRating()).append("\n");
+        showInfo.append("Description: ").append(tvShow.getDescription()).append("\n");
+        showInfo.append("Cast: ").append(tvShow.getCasting()).append("\n");
+        JOptionPane.showInputDialog(showInfo);
     }
 
     private void showSpecificTVShowSeason(Season tvShowSeason) {
