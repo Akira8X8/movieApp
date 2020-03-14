@@ -63,7 +63,9 @@ public class NetflixApp {
                 showSpecificMovieInfo(beauty);
             }else if (input.equals("2")){
                 showSpecificMovieInfo(matrix);
-            }System.exit(0);
+            }else if (input.equals("3")){showMainMenu(listOfStreamingVideos);
+            }
+            System.exit(0);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(NetflixApp.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -90,7 +92,8 @@ public class NetflixApp {
             showSpecificTVShowMenu(bad);
         }else if (input.equals("2")){
             showSpecificTVShowMenu(office);
-        }System.exit(0);
+        }else if (input.equals("3")){showMainMenu(listOfStreamingVideos);
+            }System.exit(0);
     }catch (FileNotFoundException ex) {
             Logger.getLogger(NetflixApp.class.getName()).log(Level.SEVERE, null, ex);
         }
